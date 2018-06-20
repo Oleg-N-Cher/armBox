@@ -7,6 +7,7 @@ Dev/
 Docu/
 Form/
 Host/
+Lib/
 Lin/Sym48
 Obj48/
 Obx/
@@ -23,5 +24,5 @@ armBox.exe.manifest
 Empty.odc
 LICENSE.txt
 README.txt
-*.odc
+*.xls
 

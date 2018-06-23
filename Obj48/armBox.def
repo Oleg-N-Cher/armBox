@@ -1,0 +1,26 @@
+EXPORTS
+	Kernel_IsAlpha
+	Kernel_IsLower
+	Kernel_IsUpper
+	Kernel_Lower
+	Kernel_NewArr
+	Kernel_NewRec
+	Kernel_StringToUtf8
+	Kernel_Trap
+	Kernel_Upper
+	Kernel_Utf8ToString
+	Kernel__desc
+	Kernel__body
+	Kernel__reg
+	SYSTEM_DIV
+	SYSTEM_DIVL
+	SYSTEM_ENTIER
+	SYSTEM_ENTIERL
+	SYSTEM_INF
+	SYSTEM_INFS
+	SYSTEM_MOD
+	SYSTEM_MODL
+	SYSTEM_REGMOD
+	SYSTEM_STRCOPYLL
+	SYSTEM_STRLEN
+	SYSTEM_dlink

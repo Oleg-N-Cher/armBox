@@ -1,11 +1,17 @@
 EXPORTS
+	Kernel_Collect
+	Kernel_FatalError
 	Kernel_IsAlpha
+	Kernel_Identifier__desc
 	Kernel_IsLower
 	Kernel_IsUpper
 	Kernel_Lower
+	Kernel_mainWnd
 	Kernel_NewArr
 	Kernel_NewRec
 	Kernel_StringToUtf8
+	Kernel_ThisFinObj
+	Kernel_Time
 	Kernel_Trap
 	Kernel_Upper
 	Kernel_Utf8ToString
@@ -21,6 +27,7 @@ EXPORTS
 	SYSTEM_MOD
 	SYSTEM_MODL
 	SYSTEM_REGMOD
+	SYSTEM_STRCMPLL
 	SYSTEM_STRCOPYLL
 	SYSTEM_STRLEN
 	SYSTEM_dlink

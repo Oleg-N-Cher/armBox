@@ -8,7 +8,7 @@ CD ..\Obj48
 IF "%Debug%"=="" SET Debug=-s -Os
 SET StripDll=-nostartfiles ..\C\DllMain.c -Wl,-e_DllMain@12
 SET StripExe=-nostartfiles ..\C\ExeMain.c -Wl,-e__WinMain
-SET CC=gcc.exe -I..\C -m32 %Debug% -fvisibility=hidden -fomit-frame-pointer -finline-small-functions -fno-exceptions -fno-unwind-tables -fno-asynchronous-unwind-tables -ffunction-sections -Wl,--gc-sections -Wl,--file-alignment,512
+SET CC=gcc.exe -I..\C -m32 %Debug% -fvisibility=hidden -fomit-frame-pointer -finline-small-functions -fno-exceptions -fno-unwind-tables -fno-asynchronous-unwind-tables -ffunction-sections -Wl,--gc-sections -Wl,--file-alignment,512 -Wfatal-errors
 SET AR=ar.exe -rc CPfront.a
 IF EXIST CPfront.a DEL CPfront.a
 

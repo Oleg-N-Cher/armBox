@@ -1,0 +1,33 @@
+#!/bin/sh
+export Debug="-s -Os -Wfatal-errors"
+
+cd ../Obj48
+
+export CC="gcc -fPIC -I../C $Debug -fno-exceptions -ffunction-sections -Wl,--gc-sections"
+export AR="ar -rc libCPfront.a"
+
+if [ -f "libCPfront.a" ]; then rm "libCPfront.a"; fi
+
+## Kernel
+$CC -c ../C/SYSTEM.c Types.c Kernel.c StdLog.c Math.c Strings.c Files.c
+if [ $? != 0 ]; then exit 1; fi
+$AR SYSTEM.o Types.o Kernel.o StdLog.o Math.o Strings.o Files.o
+
+## Init
+$CC -fPIC ../C/Init.c -I. -o ../armBox_.exe -Wl,--out-implib,armBox.a -L. -lCPfront -ldl
+if [ $? != 0 ]; then exit 1; fi
+
+## Math
+$CC Math.o armBox.a -static-libgcc -shared -o Math.so -Wl,--out-implib,Math.a
+if [ $? != 0 ]; then exit 1; fi
+
+## Strings
+$CC Strings.o Math.a armBox.a -static-libgcc -shared -o Strings.so -Wl,--out-implib,Strings.a
+if [ $? != 0 ]; then exit 1; fi
+
+## Files
+$CC Files.o armBox.a -static-libgcc -shared -o Files.so -Wl,--out-implib,Files.a
+if [ $? != 0 ]; then exit 1; fi
+
+#FOR %%i IN (*.dll) DO MOVE /Y %%i ..\System\Code >NUL
+

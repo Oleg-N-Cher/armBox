@@ -1,8 +1,17 @@
 #ifndef LibC__h
 #define LibC__h
 
-//#include <sys/mman.h> -- mmap
+#include <dirent.h>
+#include <fcntl.h>
+#include <iconv.h>
+#include <locale.h>
 #include <signal.h>
+#include <setjmp.h>
+#include <stdlib.h>
+#include <sys/mman.h>
+#include <sys/types.h>
+#include <time.h>
+#include <unistd.h>
 #include "SYSTEM.h"
 
 
@@ -20,27 +29,18 @@
 #  endif
 #endif
 
+typedef SHORTCHAR *PtrSTR;
+typedef CHAR *PtrLSTR;
+typedef PtrSTR *StrArray;
+typedef int HANDLE;
+typedef FILE *PtrFILE;
+typedef DIR *PtrDIR;
 
-typedef
-	SHORTCHAR *PtrSTR;
+#define tmDesc struct tm
+typedef struct timespec timespec_t;
+typedef struct sigaction sigaction_t;
+typedef struct stat stat_t;
+typedef struct dirent Dirent;
 
-typedef
-	PtrSTR *StrArray;
-
-typedef
-	INTEGER sigjmp_buf[39];
-
-
-#define mmap(addr, length, prot, flags, fd, offset) 0
-#define munmap(addr, length) 0
-
-
-typedef
-	int sigset_t;
-
-#define sigemptyset(mask) 0
-#define sigaddset(mask, i) 0
-#define sigprocmask(i, mask, omask) 0
-#define  __sigsetjmp(ctx, i) 0
 
 #endif

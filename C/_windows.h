@@ -1,5 +1,5 @@
 // windows.h wrapper
-// Includes windows.h while avoiding conflicts with Oberon types.
+// Includes windows.h while avoiding conflicts with Component Pascal types.
 
 #define BOOLEAN _BOOLEAN
 #define BYTE _BYTE

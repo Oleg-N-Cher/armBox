@@ -18,7 +18,7 @@ IF errorlevel 1 PAUSE
 %AR% SYSTEM.o Types.o Kernel.o StdLog.o Math.o Strings.o Files.o
 
 :: Init
-%CC% -fPIC %StripExe% ..\C\Init.c -I. armBox.def -o ..\armBox_.exe -Wl,--out-implib,armBox.a CPfront.a
+%CC% %StripExe% ..\C\Init.c -I. armBox.def -o ..\armBox_.exe -Wl,--out-implib,armBox.a CPfront.a
 IF errorlevel 1 PAUSE
 
 :: Math

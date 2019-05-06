@@ -1,8 +1,8 @@
 # https://habr.com/post/211751/
 
 TARGET = ../armBox
-CC = gcc -I../C -Wfatal-errors -c
-LINK = gcc -o $(TARGET) -ldl
+CC = gcc -g -I../C -Wfatal-errors -c
+LINK = gcc -g -o $(TARGET) -ldl `pkg-config --cflags --libs gtk+-2.0`
 
 .PHONY: all clean
 
@@ -12,25 +12,29 @@ all: Main.o SYSTEM.o Types.o Kernel.o Math.o Strings.o Files.o Dates.o Fonts.o \
      Log.o Meta.o Ports.o Printers.o Services.o Dialog.o Stores.o Sequencers.o \
      Models.o Converters.o Views.o Controllers.o Properties.o Mechanisms.o \
      Containers.o Printing.o Documents.o Windows_.o Controls.o Config.o Init.o \
-     Out.o Gtk2Keysyms.o Gtk2Util.o FormModels.o FormViews.o FormControllers.o \
+     Out.o Gtk2GLib.o Gtk2GObject.o Gtk2Pango.o Gtk2Gtk.o Gtk2Gdk.o \
+     Gtk2Keysyms.o Gtk2Util.o FormModels.o FormViews.o FormControllers.o \
      HostFiles.o HostRegistry.o HostFonts.o HostPorts.o HostWindows.o \
      HostCmds.o HostClipboard.o HostCFrames.o HostDialog.o HostMechanisms.o \
-     HostTabFrames.o HostTextConv.o HostMenus.o StdTabViews.o StdDialog.o \
-     StdApi.o StdCFrames.o StdInterpreter.o StdCmds.o StdLinks.o StdLog.o \
-     StdMenuTool.o DevMarkers.o TextModels.o TextMappers.o TextRulers.o \
-     TextSetters.o TextViews.o TextCmds.o TextControllers.o
+     HostTabFrames.o HostTextConv.o HostMenus.o HostLang.o HostConsole.o \
+     HostDates.o StdTabViews.o StdDialog.o StdApi.o StdCFrames.o \
+     StdInterpreter.o StdCmds.o StdLinks.o StdLog.o StdMenuTool.o DevMarkers.o \
+     TextModels.o TextMappers.o TextRulers.o TextSetters.o TextViews.o \
+     TextCmds.o TextControllers.o Console.o
 	$(LINK) \
      Main.o SYSTEM.o Types.o Kernel.o Math.o Strings.o Files.o Dates.o Fonts.o \
      Log.o Meta.o Ports.o Printers.o Services.o Dialog.o Stores.o Sequencers.o \
      Models.o Converters.o Views.o Controllers.o Properties.o Mechanisms.o \
      Containers.o Printing.o Documents.o Windows_.o Controls.o Config.o Init.o \
-     Out.o Gtk2Keysyms.o Gtk2Util.o FormModels.o FormViews.o FormControllers.o \
+     Out.o Gtk2GLib.o Gtk2GObject.o Gtk2Pango.o Gtk2Gtk.o Gtk2Gdk.o \
+     Gtk2Keysyms.o Gtk2Util.o FormModels.o FormViews.o FormControllers.o \
      HostFiles.o HostRegistry.o HostFonts.o HostPorts.o HostWindows.o \
      HostCmds.o HostClipboard.o HostCFrames.o HostDialog.o HostMechanisms.o \
-     HostTabFrames.o HostTextConv.o HostMenus.o StdTabViews.o StdDialog.o \
-     StdApi.o StdCFrames.o StdInterpreter.o StdCmds.o StdLinks.o StdLog.o \
-     StdMenuTool.o DevMarkers.o TextModels.o TextMappers.o TextRulers.o \
-     TextSetters.o TextViews.o TextCmds.o TextControllers.o
+     HostTabFrames.o HostTextConv.o HostMenus.o HostLang.o HostConsole.o \
+     HostDates.o StdTabViews.o StdDialog.o StdApi.o StdCFrames.o \
+     StdInterpreter.o StdCmds.o StdLinks.o StdLog.o StdMenuTool.o DevMarkers.o \
+     TextModels.o TextMappers.o TextRulers.o TextSetters.o TextViews.o \
+     TextCmds.o TextControllers.o Console.o
 
 ### SYSTEM, System, Kernel
 
@@ -95,14 +99,26 @@ Out.o: Out.c
 Config.o: Config.c
 		$(CC) Config.c
 Init.o: Init.c
-		$(CC) Init.c `pkg-config --cflags --libs gtk+-2.0`
+		$(CC) Init.c
+Console.o: Console.c
+		$(CC) Console.c
 
 ### Gtk
 
+Gtk2GLib.o: Gtk2GLib.c
+		$(CC) Gtk2GLib.c
+Gtk2GObject.o: Gtk2GObject.c
+		$(CC) Gtk2GObject.c
+Gtk2Pango.o: Gtk2Pango.c
+		$(CC) Gtk2Pango.c
+Gtk2Gtk.o: Gtk2Gtk.c
+		$(CC) Gtk2Gtk.c
+Gtk2Gdk.o: Gtk2Gdk.c
+		$(CC) Gtk2Gdk.c
 Gtk2Keysyms.o: Gtk2Keysyms.c
 		$(CC) Gtk2Keysyms.c
 Gtk2Util.o: Gtk2Util.c
-		$(CC) Gtk2Util.c `pkg-config --cflags --libs gtk+-2.0`
+		$(CC) Gtk2Util.c
 
 ### Form
 
@@ -120,9 +136,9 @@ HostFiles.o: HostFiles.c
 HostRegistry.o: HostRegistry.c
 		$(CC) HostRegistry.c
 HostFonts.o: HostFonts.c
-		$(CC) HostFonts.c `pkg-config --cflags --libs gtk+-2.0`
+		$(CC) HostFonts.c
 HostPorts.o: HostPorts.c
-		$(CC) HostPorts.c `pkg-config --cflags --libs gtk+-2.0`
+		$(CC) HostPorts.c
 HostWindows.o: HostWindows.c
 		$(CC) HostWindows.c
 HostClipboard.o: HostClipboard.c
@@ -141,6 +157,12 @@ HostTextConv.o: HostTextConv.c
 		$(CC) HostTextConv.c
 HostMenus.o: HostMenus.c
 		$(CC) HostMenus.c
+HostLang.o: HostLang.c
+		$(CC) HostLang.c
+HostConsole.o: HostConsole.c
+		$(CC) HostConsole.c
+HostDates.o: HostDates.c
+		$(CC) HostDates.c
 
 ### Std
 

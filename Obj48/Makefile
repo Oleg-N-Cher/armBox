@@ -14,10 +14,10 @@ all: Main.o SYSTEM.o Types.o Kernel.o Math.o Strings.o Files.o Dates.o Fonts.o \
      Containers.o Printing.o Documents.o Windows_.o Controls.o Config.o Init.o \
      Out.o Gtk2GLib.o Gtk2GObject.o Gtk2Pango.o Gtk2Gtk.o Gtk2Gdk.o \
      Gtk2Keysyms.o Gtk2Util.o FormModels.o FormViews.o FormControllers.o \
-     HostFiles.o HostRegistry.o HostFonts.o HostPorts.o HostWindows.o \
-     HostCmds.o HostClipboard.o HostCFrames.o HostDialog.o HostMechanisms.o \
-     HostTabFrames.o HostTextConv.o HostMenus.o HostLang.o HostConsole.o \
-     HostDates.o StdTabViews.o StdDialog.o StdApi.o StdCFrames.o \
+     HostGnome.o HostFiles.o HostRegistry.o HostFonts.o HostPorts.o \
+     HostWindows.o HostCmds.o HostClipboard.o HostCFrames.o HostDialog.o \
+     HostMechanisms.o HostTabFrames.o HostTextConv.o HostMenus.o HostLang.o \
+     HostConsole.o HostDates.o StdTabViews.o StdDialog.o StdApi.o StdCFrames.o \
      StdInterpreter.o StdCmds.o StdLinks.o StdLog.o StdMenuTool.o DevMarkers.o \
      TextModels.o TextMappers.o TextRulers.o TextSetters.o TextViews.o \
      TextCmds.o TextControllers.o Console.o
@@ -28,10 +28,10 @@ all: Main.o SYSTEM.o Types.o Kernel.o Math.o Strings.o Files.o Dates.o Fonts.o \
      Containers.o Printing.o Documents.o Windows_.o Controls.o Config.o Init.o \
      Out.o Gtk2GLib.o Gtk2GObject.o Gtk2Pango.o Gtk2Gtk.o Gtk2Gdk.o \
      Gtk2Keysyms.o Gtk2Util.o FormModels.o FormViews.o FormControllers.o \
-     HostFiles.o HostRegistry.o HostFonts.o HostPorts.o HostWindows.o \
-     HostCmds.o HostClipboard.o HostCFrames.o HostDialog.o HostMechanisms.o \
-     HostTabFrames.o HostTextConv.o HostMenus.o HostLang.o HostConsole.o \
-     HostDates.o StdTabViews.o StdDialog.o StdApi.o StdCFrames.o \
+     HostGnome.o HostFiles.o HostRegistry.o HostFonts.o HostPorts.o \
+     HostWindows.o HostCmds.o HostClipboard.o HostCFrames.o HostDialog.o \
+     HostMechanisms.o HostTabFrames.o HostTextConv.o HostMenus.o HostLang.o \
+     HostConsole.o HostDates.o StdTabViews.o StdDialog.o StdApi.o StdCFrames.o \
      StdInterpreter.o StdCmds.o StdLinks.o StdLog.o StdMenuTool.o DevMarkers.o \
      TextModels.o TextMappers.o TextRulers.o TextSetters.o TextViews.o \
      TextCmds.o TextControllers.o Console.o
@@ -131,6 +131,8 @@ FormControllers.o: FormControllers.c
 
 ### Host
 
+HostGnome.o: HostGnome.c
+		$(CC) HostGnome.c
 HostFiles.o: HostFiles.c
 		$(CC) HostFiles.c
 HostRegistry.o: HostRegistry.c

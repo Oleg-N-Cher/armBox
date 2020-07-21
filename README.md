@@ -1,5 +1,7 @@
-armBox - BlackBox Component Builder port for Linux/ARM
-======================================================
+BlackBox Component Builder port for Linux/ARM
+=============================================
+
+![](armBox.png)
 
 Based on cross-platform BlackBox version
 
